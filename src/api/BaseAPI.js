@@ -1,4 +1,4 @@
-import { expect } from '../../tests/_fixtures/fixtures';
+import { expect } from '@playwright/test';
 import { testStep } from '../common/helpers/pw';
 import { SUCCESS_CODE } from './constants/responceCodes';
 

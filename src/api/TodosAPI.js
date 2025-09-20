@@ -18,10 +18,18 @@ export class TodosAPI extends BaseAPI {
   }
 
   async getCompletedTodosByUser(userId) {
-    return await this.getTodosBy({ userId, completed: true });
+    return await this.step(`GET completed todos by userId ${userId}`, async () => {
+      return await this.request.get('/students-api/todos', {
+        params: { userId, completed: true },
+      });
+    });
   }
 
   async getNotCompletedTodosByUser(userId) {
-    return await this.getTodosBy({ userId, completed: false });
+    return await this.step(`GET not-completed todos by userId ${userId}`, async () => {
+      return await this.request.get('/students-api/todos', {
+        params: { userId, completed: false },
+      });
+    });
   }
 }
